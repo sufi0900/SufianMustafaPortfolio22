@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "proxy": "https://pink-witty-jellyfish.cyclic.app",
+  "proxy": "http://localhost:3000",
   "private": "false",
   "dependencies": {
     "@emotion/react": "^11.10.4",
