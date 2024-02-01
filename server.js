@@ -51,7 +51,7 @@ app.use("/api", require("./routes/commentRouter"));
 app.use("/api", require("./routes/notifyRouter"));
 app.use("/api", require("./routes/messageRouter"));
 app.get("/", (req, res) => {
-  res.send("Welcome to Mern Stack  Vnetwork");
+  res.send("Welcome to Mern Stack SM-Network");
 });
 
 mongoose.connect(
@@ -68,12 +68,12 @@ mongoose.connect(
   }
 );
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+//   });
+// }
 
 const port = process.env.PORT || 8000;
 http.listen(port, () => {
