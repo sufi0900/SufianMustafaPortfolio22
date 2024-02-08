@@ -11,27 +11,27 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
-if (process.env.NODE_ENV === "production") {
-  // Allow requests from your Netlify frontend domain
-  app.use(
-    cors({
-      origin: ["https://sm-network-mern-social-ma.vercel.app/"],
-      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-      credentials: true, // Allow credentials such as cookies
-    })
-  );
+// if (process.env.NODE_ENV === "production") {
+//   // Allow requests from your Netlify frontend domain
+//   app.use(
+//     cors({
+//       origin: ["https://sm-network-mern-social-ma.vercel.app/"],
+//       methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//       credentials: true, // Allow credentials such as cookies
+//     })
+//   );
 
-  // Serve static files from the build folder
-  app.use(express.static("FrontEnd/build", { maxAge: "1d" }));
+//   // Serve static files from the build folder
+//   app.use(express.static("FrontEnd/build", { maxAge: "1d" }));
 
-  // Handle routes for your frontend app
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "FrontEnd", "build", "index.html"));
-  });
-} else {
-  // In development mode, you might want to enable CORS for local testing
-  app.use(cors());
-}
+//   // Handle routes for your frontend app
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "FrontEnd", "build", "index.html"));
+//   });
+// } else {
+//   // In development mode, you might want to enable CORS for local testing
+//   app.use(cors());
+// }
 // Socket
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
